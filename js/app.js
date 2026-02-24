@@ -68,11 +68,12 @@ botonGenerar.addEventListener("click", function() {
 
         const rgb = hslToRGB(h, s, l);
 
-        const colorRGB = "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b +")";
+        const colorRGB = "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b +")";                   
     
         //tarjeta de color
         const tarjeta = document.createElement("div");
         tarjeta.classList.add("color-box");
+        tarjeta.setAttribute("data-tooltip", "Clic para copiar");
 
         //muestra de color
         const muestra = document.createElement("div");
@@ -95,13 +96,33 @@ botonGenerar.addEventListener("click", function() {
         tarjeta.appendChild(textoFormato);
 
         contenedorColores.appendChild(tarjeta);
-         
-        
-
-
-
-
-
 
     }
 });
+
+document.addEventListener("click", async (e) => {
+  const tarjeta = e.target.closest(".color-box");
+  if (!tarjeta) return;
+
+  console.log("✅ Click detectado en una .color-box"); // ← PRUEBA
+
+  const textoFormato = tarjeta.querySelector("p");
+  if (!textoFormato) return;
+
+  const textoACopiar = textoFormato.textContent.trim();
+
+  try {
+    await navigator.clipboard.writeText(textoACopiar);
+    tarjeta.setAttribute("data-tooltip", "Copiado en el portapapeles");
+    tarjeta.classList.remove("tooltip-hidden");
+
+    clearTimeout(tarjeta._tooltipTimer);
+    tarjeta._tooltipTimer = setTimeout(() => {
+      tarjeta.classList.add("tooltip-hidden");
+      tarjeta.setAttribute("data-tooltip", "Clic para copiar");
+    }, 1000);
+  } catch (error) {
+    console.log("X Error al copiar:", error);
+  }
+});
+

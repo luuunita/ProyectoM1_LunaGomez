@@ -108,3 +108,35 @@ main {
 }
 
 
+.color-box{
+    position: relative;
+    cursor: pointer;
+    overflow: visible;
+}
+
+.color-box::after{
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    bottom: 110%;
+    transform: translateX(-50%);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    background: rgb(8, 9, 10);
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.color-box:hover::after{
+    opacity: 1;
+}
+
+.color-box.tooltip-hidden::after{
+    opacity: 0;
+}
