@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- esta configuracion hace que se vea bien en celulares u otros dispositivos, (responsive) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Generador de Paletas de Colores</title>
+    <!-- esto me conecta con el archivo de estilos de CSS externo, se llama etiqueta de enlace (siempre en el head)-->
+     <link rel="stylesheet" href="./css/styles.css"> 
+</head>
+<body>
+<!-- Encabezado principal visible para el usuario -->
+ <header>
+    <h1>Generador de Paletas Moon</h1>
+    <p>Selecciona el tamaño deseado y haz clic en las opciones a continuación.</p>
+ </header>
+<!-- Contenido principal de la aplicación -->
+ <main>
+    <!-- Sección donde estarán los controles del generador -->
+     <section id="controls">
+        <h2>Selección</h2>
+<!-- Etiqueta asociada al selector de cantidad (for size, se conecta al elemento que tenga id size)-->
+ <!-- significa que si hago clic en el texto cantidad de los colores, el selector se activa -->
+ <label for="size">Cantidad de los Colores:</label>
+ <!-- este selector se despliega para elegir cuantos colores se van a generar -->
+  <!-- se le pone id size porque luego en js lo vamos a buscar asi getElementById("size") -->
+  <select id="size">
+    <!-- el texto visible es 6 colores, pero js recibe el valor real que es 6 -->
+   <option value="">Selecciona un valor</option>
+    <option value="6">6 colores</option>
+    <option value="8">8 colores</option>
+    <option value="9">9 colores </option>
+  </select>
+
+   <select id="format">
+     <option value="select">Formato deseado</option>
+     <option value="HSL">HSL</option>
+     <option value="RGB">RGB</option>
+     </select>
+  <!-- boton que activara la generacion de la paleta -->
+   <!-- js despues usara el clic de este boton, en js es getElementById("generate") -->
+    <button id="generate">Generar paleta</button>
+     </section>
+     <!-- seccion donde se mostraran los colores generados dinamicamente -->
+     <section id="palette">
+        <h2>Colores que se han generado</h2>
+        <!-- aqui js insertara los bloques de color -->
+         <!-- en js usamos getElementById("colors-container") -->
+         <div id="colors-container"></div>
+      
+     </section>
+
+ </main>
+ <script src="./js/app.js"></script>
+</body>
+</html>
