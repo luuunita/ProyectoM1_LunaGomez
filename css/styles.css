@@ -1,0 +1,110 @@
+/* Hacemos que el tamaño de las cajas sea mas facil de controlar */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+/* Quitamos el espacio que el navegador pone por defecto, del que nos hablaba Cami, los 20px de mas */
+/* Este sera el estilo general del body y el color de fondo*/
+body {
+    margin: 0;
+    font-family: Trebuchet MS, sans-serif;
+    background-color: #edddf8;
+
+}
+
+/* Agregue una fuente para solo el titulo principal*/
+h1 {
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+/* Estilo del Encabezado */
+header {
+    text-align: center; /*queda el texto en el centro*/
+    padding: 30px 20px; /*espacio de todos los lados*/
+}
+
+/* esto hace el titulo mas grande y diferente*/
+h1 {
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Estilo del parrafo */
+header p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Estilo del primer contenedor*/
+main {
+    max-width: 700px;  /* Ancho maximo */
+    margin: 40px auto; /* 40px arriba y abajo y centrado al horizontal */
+    padding: 30px;     /* espacio interno del contenedor */
+}
+
+/* Estilo para los controles */
+#controls {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+/* Espacio entre label y select */
+#controls {
+    display: block;   /*hace que ocupe toda la linea */
+    margin-bottom: 8px;
+}
+
+/* estilo del boton */
+#controls button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #b28dff;
+    color: white;
+    cursor: pointer;
+}
+
+/* un cambio cuado se pasa el mouse */
+#controls button:hover {
+    background-color: #9d72f5; 
+}
+
+/* contenedor donde iran todos los bloques de color */
+#colors-container {
+    display: flex;  /* activa el flexbox*/
+    flex-wrap: wrap; /* permite que bajen a la otra fila */
+    justify-content: center; /* centra horizontalmente */
+    gap: 15px;        /* espacio entre tarjetas */
+    margin-top: 20px;
+}
+
+/* cada bloque de color o sea como una tarjeta */
+.color-box {
+    width: 200px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background-color: white;
+    overflow: hidden;
+}
+/* bloque donde esta el color que se va a generar */
+.color-sample {
+    width: 100%;
+    height: 160px;
+    border-radius: 0px;
+    background-color: #edddf8; 
+    margin-bottom: 0px;
+
+}
+
+/* texto de codigos */
+.color-box p {
+    padding: 10px 15px;
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem; 
+}
+
+
