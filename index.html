@@ -32,14 +32,16 @@
     <option value="9">9 colores </option>
   </select>
 
+   <label for="format">Formato deseado:</label>
    <select id="format">
-     <option value="select">Formato deseado</option>
+     <option value="">Selecciona un formato</option>
      <option value="HSL">HSL</option>
      <option value="RGB">RGB</option>
      </select>
   <!-- boton que activara la generacion de la paleta -->
    <!-- js despues usara el clic de este boton, en js es getElementById("generate") -->
     <button id="generate">Generar paleta</button>
+    <div id="msg-tooltip" aria-live="polite"></div>
      </section>
      <!-- seccion donde se mostraran los colores generados dinamicamente -->
      <section id="palette">

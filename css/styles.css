@@ -42,29 +42,48 @@ header p {
 main {
     max-width: 700px;  /* Ancho maximo */
     margin: 40px auto; /* 40px arriba y abajo y centrado al horizontal */
-    padding: 30px;     /* espacio interno del contenedor */
+    padding: 10px;     /* espacio interno del contenedor */
 }
 
 /* Estilo para los controles */
 #controls {
-    margin-top: 30px;
-    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+#controls h2 {
+    flex-basis: 100%;
+    margin: 10px;
 }
 
 /* Espacio entre label y select */
-#controls {
-    display: block;   /*hace que ocupe toda la linea */
-    margin-bottom: 8px;
+#controls label {
+    margin: 0;
+    white-space: nowrap;
+   text-align: right;
+}
+
+#controls select {
+    margin-right: 0;
+    margin-bottom: 0;
+    min-width: 170px;
 }
 
 /* estilo del boton */
 #controls button {
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 10px 30px;
+    border-radius: 90px;
     border: none;
     background-color: #b28dff;
-    color: white;
+    color: rgb(10, 10, 10);
     cursor: pointer;
+    flex-basis: 100%;
+    justify-self: center;
+    align-self: center;
+    margin: 0 auto;
+    max-width: 220px;
 }
 
 /* un cambio cuado se pasa el mouse */
@@ -74,11 +93,12 @@ main {
 
 /* contenedor donde iran todos los bloques de color */
 #colors-container {
-    display: flex;  /* activa el flexbox*/
-    flex-wrap: wrap; /* permite que bajen a la otra fila */
+    display: grid;  /* activa el grid*/
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* columnas automaticas*/
     justify-content: center; /* centra horizontalmente */
     gap: 15px;        /* espacio entre tarjetas */
     margin-top: 20px;
+    justify-items: center;
 }
 
 /* cada bloque de color o sea como una tarjeta */
@@ -124,8 +144,8 @@ main {
     border-radius: 8px;
     font-size: 12px;
     white-space: nowrap;
-    background: rgb(8, 9, 10);
-    color: white;
+    background: #111;
+    color: #fff;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.15s ease;
@@ -139,4 +159,22 @@ main {
 
 .color-box.tooltip-hidden::after{
     opacity: 0;
+}
+
+#msg-tooltip {
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.2s, transform 0.2s; /*animacion suave*/
+    background: #111;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    width: fit-content;
+}
+
+#msg-tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
 }

@@ -3,6 +3,28 @@ const botonGenerar = document.getElementById("generate");
 const selectorCantidad = document.getElementById("size");
 const contenedorColores = document.getElementById("colors-container");
 const selectorFormato = document.getElementById("format");
+const tooltipMsg = document.getElementById("msg-tooltip");
+
+function mostrarMensaje(texto) {
+    tooltipMsg.textContent = texto;
+    tooltipMsg.classList.add("show");
+
+    clearTimeout(tooltipMsg._t);
+    tooltipMsg._t = setTimeout(() => {
+        tooltipMsg.classList.remove("show");
+    }, 1200);
+}
+function mensajeListo() {
+    const cantidad= selectorCantidad.value;
+    const formato = selectorFormato.value;
+
+    if (cantidad === "" || formato === "select" || formato === "") return; //si falta algo no muestra
+    
+    mostrarMensaje("Listo para generar: " + cantidad + " en " + formato);
+}
+    selectorCantidad.addEventListener("change", mensajeListo);
+    selectorFormato.addEventListener("change", mensajeListo);
+
 // el evento que va a suceder cuando el usuaio haga clic en el boton
 // cuando haya un click.....
 botonGenerar.addEventListener("click", function() { 
@@ -11,6 +33,13 @@ botonGenerar.addEventListener("click", function() {
     // leer cuantos colores quiere el usuario, ...ejecuta este bloque cuando haya clic
     let cantidad = Number(selectorCantidad.value);
     console.log("Cantidad", cantidad);
+
+    const formato = selectorFormato.value;
+
+    if (!cantidad || formato === "select" || formato === "") {
+        mostrarMensaje("Selecciona cantidad y formato");
+        return;
+    }
 
     //esto es para limpiar el contenedor, los colores anteriores
     contenedorColores.innerHTML = "";
@@ -98,13 +127,26 @@ botonGenerar.addEventListener("click", function() {
         contenedorColores.appendChild(tarjeta);
 
     }
+    animarTarjetas();
+
+     mostrarMensaje("Colores generados: " + selectorCantidad.value + " en " + selectorFormato.value);
 });
+function animarTarjetas() { //crea una funciona para animar tarjetas
+    const tarjetas = document.querySelectorAll(".color-box"); //selecciona todas las tarj
+    tarjetas.forEach((t, index) => {//recorre tarj con su posicion
+    t.style.opacity = "0";  //empieza invisible 
+    t.style.transform = "translateY(10px)"; //empieza un poco abajo
+    t.style.transition = "opacity 0.25s ease, transform 0.25s ease"; //animacion suave
+    setTimeout(()  => {  //hace una espera 
+        t.style.opacity = "1"; //aparece
+        t.style.transform = "translateY(0)"; //sube a su lugar 
+    }, 40 * index); //retraso por tarj para efecto escalonado
+});
+}
 
 document.addEventListener("click", async (e) => {
   const tarjeta = e.target.closest(".color-box");
   if (!tarjeta) return;
-
-  console.log("✅ Click detectado en una .color-box"); // ← PRUEBA
 
   const textoFormato = tarjeta.querySelector("p");
   if (!textoFormato) return;
