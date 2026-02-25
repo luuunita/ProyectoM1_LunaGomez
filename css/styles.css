@@ -76,7 +76,7 @@ main {
     padding: 10px 30px;
     border-radius: 90px;
     border: none;
-    background-color: #b28dff;
+    background-color: #CE70F6;
     color: rgb(10, 10, 10);
     cursor: pointer;
     flex-basis: 100%;
@@ -88,7 +88,7 @@ main {
 
 /* un cambio cuado se pasa el mouse */
 #controls button:hover {
-    background-color: #9d72f5; 
+    background-color: #BC63E2; 
 }
 
 /* contenedor donde iran todos los bloques de color */
@@ -109,6 +109,16 @@ main {
     background-color: white;
     overflow: hidden;
 }
+
+/* Animación al pasar el mouse sobre la tarjeta */ /* Comentario: mejora visual al hacer hover */
+.color-box { /* Selecciona cada tarjeta */
+  transition: transform 0.22s ease, box-shadow 0.22s ease; /* Hace suave el movimiento y la sombra */
+} /* Cierra .color-box */
+
+.color-box:hover { /* Cuando el mouse pasa por encima */
+  transform: translateY(-8px) scale(1.06); /* Sube un poco y crece apenas */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.19); /* Agrega una sombra para efecto “elevado” */
+} /* Cierra hover */
 /* bloque donde esta el color que se va a generar */
 .color-sample {
     width: 100%;
@@ -177,4 +187,28 @@ main {
 #msg-tooltip.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+header {
+    background: rgb(206, 112, 246);
+    border-bottom: 1px solid rgb(10, 10, 10);
+    border-radius: 0 0 18px 18px;
+}
+
+header h1 {
+    animation: tituloEntrada 0.8s ease-out;
+}
+
+@keyframes tituloEntrada {
+    0% {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(6px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }

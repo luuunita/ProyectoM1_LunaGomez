@@ -103,6 +103,7 @@ botonGenerar.addEventListener("click", function() {
         const tarjeta = document.createElement("div");
         tarjeta.classList.add("color-box");
         tarjeta.setAttribute("data-tooltip", "Clic para copiar");
+        tarjeta.setAttribute("tabindex", "0");
 
         //muestra de color
         const muestra = document.createElement("div");
@@ -167,4 +168,13 @@ document.addEventListener("click", async (e) => {
     console.log("X Error al copiar:", error);
   }
 });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+
+    const tarjeta = document.activeElement;
+    if (!tarjeta || !tarjeta.classList.contains("color-box")) return;
+
+    e.preventDefault();
+    tarjeta.click();
+  });
 
