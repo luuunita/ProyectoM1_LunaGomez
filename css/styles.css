@@ -1,12 +1,10 @@
-/* Hacemos que el tamaño de las cajas sea mas facil de controlar */
+
 *,
 *::before,
 *::after{
     box-sizing: border-box;
 }
 
-/* Quitamos el espacio que el navegador pone por defecto, del que nos hablaba Cami, los 20px de mas */
-/* Este sera el estilo general del body y el color de fondo*/
 body {
     margin: 0;
     font-family: Trebuchet MS, sans-serif;
@@ -14,38 +12,32 @@ body {
 
 }
 
-/* Agregue una fuente para solo el titulo principal*/
 h1 {
     font-family: 'Lucida Sans', sans-serif;
 }
 
-/* Estilo del Encabezado */
 header {
-    text-align: center; /*queda el texto en el centro*/
-    padding: 30px 20px; /*espacio de todos los lados*/
+    text-align: center; 
+    padding: 30px 20px; 
 }
 
-/* esto hace el titulo mas grande y diferente*/
 h1 {
     font-family: 'Lucida Sans', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
-/* Estilo del parrafo */
 header p {
     font-size: 1.1rem;
     color: #555;
 }
 
-/* Estilo del primer contenedor*/
 main {
-    max-width: 700px;  /* Ancho maximo */
-    margin: 40px auto; /* 40px arriba y abajo y centrado al horizontal */
-    padding: 10px;     /* espacio interno del contenedor */
+    max-width: 700px;  
+    margin: 40px auto; 
+    padding: 10px;     
 }
 
-/* Estilo para los controles */
 #controls {
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +50,6 @@ main {
     margin: 10px;
 }
 
-/* Espacio entre label y select */
 #controls label {
     margin: 0;
     white-space: nowrap;
@@ -71,7 +62,6 @@ main {
     min-width: 170px;
 }
 
-/* estilo del boton */
 #controls button {
     padding: 10px 30px;
     border-radius: 90px;
@@ -86,22 +76,19 @@ main {
     max-width: 220px;
 }
 
-/* un cambio cuado se pasa el mouse */
 #controls button:hover {
     background-color: #BC63E2; 
 }
 
-/* contenedor donde iran todos los bloques de color */
 #colors-container {
-    display: grid;  /* activa el grid*/
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* columnas automaticas*/
-    justify-content: center; /* centra horizontalmente */
-    gap: 15px;        /* espacio entre tarjetas */
+    display: grid;  
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    justify-content: center; 
+    gap: 15px;        
     margin-top: 20px;
     justify-items: center;
 }
 
-/* cada bloque de color o sea como una tarjeta */
 .color-box {
     width: 200px;
     border-radius: 12px;
@@ -110,16 +97,15 @@ main {
     overflow: hidden;
 }
 
-/* Animación al pasar el mouse sobre la tarjeta */ /* Comentario: mejora visual al hacer hover */
-.color-box { /* Selecciona cada tarjeta */
-  transition: transform 0.22s ease, box-shadow 0.22s ease; /* Hace suave el movimiento y la sombra */
-} /* Cierra .color-box */
+.color-box { 
+  transition: transform 0.22s ease, box-shadow 0.22s ease; 
+} 
 
-.color-box:hover { /* Cuando el mouse pasa por encima */
-  transform: translateY(-8px) scale(1.06); /* Sube un poco y crece apenas */
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.19); /* Agrega una sombra para efecto “elevado” */
-} /* Cierra hover */
-/* bloque donde esta el color que se va a generar */
+.color-box:hover { 
+  transform: translateY(-8px) scale(1.06); 
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.19); 
+} 
+
 .color-sample {
     width: 100%;
     height: 160px;
@@ -129,7 +115,6 @@ main {
 
 }
 
-/* texto de codigos */
 .color-box p {
     padding: 10px 15px;
     margin: 0;
@@ -174,7 +159,7 @@ main {
 #msg-tooltip {
     opacity: 0;
     transform: translateY(-4px);
-    transition: opacity 0.2s, transform 0.2s; /*animacion suave*/
+    transition: opacity 0.2s, transform 0.2s; 
     background: #111;
     color: #fff;
     padding: 8px 12px;
