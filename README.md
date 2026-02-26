@@ -122,14 +122,13 @@ Se utilizan funciones de JavaScript para manejar la interfaz:
 # Copiar al Portapapeles
 - Al hacer clic en una tarjeta se copia el texto mostrado en el `<p>` (HSL o RGB).
 - Se usa `navigator.clipboard.writeText(...)`.
-- El tooltip cambia de “Clic para copiar” a “Copiado en el portapapeles”.
+- El tooltip “Clic para copiar” se muestra al pasar el mouse sobre la tarjeta y al hacer clic se confirma la acción de copiado.
 
 ---
 
 ## Accesibilidad (consideraciones básicas)
 - **Labels asociados:** `label for="..."` enlazado con `id="..."` en los `select`.
 - **Foco visible:** navegación con **Tab** muestra foco en controles y tarjetas.
-- **Teclado en tarjetas:** con **Enter** o **Espacio** sobre una tarjeta enfocada, se activa la copia.
 - **Contraste suficiente:** texto oscuro sobre fondo claro y botón con color sólido.
 
 ---
